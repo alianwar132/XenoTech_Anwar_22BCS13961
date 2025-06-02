@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors - Blue theme matching design */
+  --background: 0 0% 100%; /* #FFFFFF */
+  --foreground: 222 84% 4.9%; /* #0F1419 */
+  --muted: 210 40% 96%; /* #F1F5F9 */
+  --muted-foreground: 215 16% 46.9%; /* #64748B */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 222 84% 4.9%; /* #0F1419 */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 222 84% 4.9%; /* #0F1419 */
+  --border: 214 32% 91%; /* #E2E8F0 */
+  --input: 214 32% 91%; /* #E2E8F0 */
+  
+  /* Primary Blue - matches design reference */
+  --primary: 207 90% 54%; /* #1976D2 */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  /* Secondary Gray */
+  --secondary: 210 40% 96%; /* #F1F5F9 */
+  --secondary-foreground: 222 84% 4.9%; /* #0F1419 */
+  
+  /* Accent Orange - for call-to-action buttons */
+  --accent: 21 90% 59%; /* #FF6B35 */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  /* Success Green */
+  --success: 142 76% 36%; /* #16A34A */
+  --success-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  /* Warning Orange */
+  --warning: 32 95% 44%; /* #D97706 */
+  --warning-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  /* Destructive Red */
+  --destructive: 0 84% 60%; /* #DC2626 */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  --ring: 207 90% 54%; /* #1976D2 */
+  --radius: 0.5rem;
+
+  /* Chart colors */
+  --chart-1: 207 90% 54%; /* #1976D2 */
+  --chart-2: 21 90% 59%; /* #FF6B35 */
+  --chart-3: 142 76% 36%; /* #16A34A */
+  --chart-4: 32 95% 44%; /* #D97706 */
+  --chart-5: 271 81% 56%; /* #8B5CF6 */
+
+  /* Sidebar colors */
+  --sidebar-background: 0 0% 100%; /* #FFFFFF */
+  --sidebar-foreground: 222 84% 4.9%; /* #0F1419 */
+  --sidebar-primary: 207 90% 54%; /* #1976D2 */
+  --sidebar-primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --sidebar-accent: 210 40% 96%; /* #F1F5F9 */
+  --sidebar-accent-foreground: 222 84% 4.9%; /* #0F1419 */
+  --sidebar-border: 214 32% 91%; /* #E2E8F0 */
+  --sidebar-ring: 207 90% 54%; /* #1976D2 */
+}
+
+.dark {
+  --background: 222 84% 4.9%; /* #0F1419 */
+  --foreground: 210 40% 98%; /* #F8FAFC */
+  --muted: 217 32% 17%; /* #1E293B */
+  --muted-foreground: 215 20% 65%; /* #94A3B8 */
+  --popover: 222 84% 4.9%; /* #0F1419 */
+  --popover-foreground: 210 40% 98%; /* #F8FAFC */
+  --card: 222 84% 4.9%; /* #0F1419 */
+  --card-foreground: 210 40% 98%; /* #F8FAFC */
+  --border: 217 32% 17%; /* #1E293B */
+  --input: 217 32% 17%; /* #1E293B */
+  
+  /* Primary Blue - same in dark mode */
+  --primary: 207 90% 54%; /* #1976D2 */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  --secondary: 217 32% 17%; /* #1E293B */
+  --secondary-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  /* Accent Orange - same in dark mode */
+  --accent: 21 90% 59%; /* #FF6B35 */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  --destructive: 0 62% 30%; /* #7F1D1D */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  
+  --ring: 207 90% 54%; /* #1976D2 */
+
+  /* Dark mode sidebar */
+  --sidebar-background: 222 84% 4.9%; /* #0F1419 */
+  --sidebar-foreground: 210 40% 98%; /* #F8FAFC */
+  --sidebar-primary: 207 90% 54%; /* #1976D2 */
+  --sidebar-primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --sidebar-accent: 217 32% 17%; /* #1E293B */
+  --sidebar-accent-foreground: 210 40% 98%; /* #F8FAFC */
+  --sidebar-border: 217 32% 17%; /* #1E293B */
+  --sidebar-ring: 207 90% 54%; /* #1976D2 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Custom button variants for the CRM theme */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success/90;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Gradient backgrounds for special sections */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary/10 to-accent/10;
+  }
+
+  .gradient-ai {
+    @apply bg-gradient-to-br from-purple-500 to-indigo-600;
+  }
+
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-2 border-transparent border-t-current;
+  }
+
+  /* Status indicators */
+  .status-active {
+    @apply bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200;
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+
+  .status-failed {
+    @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+  }
+
+  .status-draft {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200;
+  }
+}
+
+@layer utilities {
+  /* Text color utilities for consistency */
+  .text-primary-600 {
+    color: hsl(var(--primary));
+  }
+
+  .text-accent-600 {
+    color: hsl(var(--accent));
+  }
+
+  .text-success-600 {
+    color: hsl(var(--success));
+  }
+
+  .text-warning-600 {
+    color: hsl(var(--warning));
+  }
+
+  /* Background utilities */
+  .bg-primary-50 {
+    background-color: hsl(var(--primary) / 0.05);
+  }
+
+  .bg-accent-50 {
+    background-color: hsl(var(--accent) / 0.05);
+  }
+
+  .bg-success-50 {
+    background-color: hsl(var(--success) / 0.05);
+  }
+
+  .bg-warning-50 {
+    background-color: hsl(var(--warning) / 0.05);
+  }
+
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  /* Shadow utilities for depth */
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+
+  .shadow-card-hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  /* Responsive typography */
+  .text-responsive-xl {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+}
