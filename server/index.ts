@@ -1,6 +1,9 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import dotenv from 'dotenv';
+dotenv.config(); // This MUST be before accessing process.env.DATABASE_URL
+
 
 const app = express();
 app.use(express.json());

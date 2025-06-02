@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config(); // ✅ Must be before accessing env vars
+
 import { Pool, neonConfig } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-serverless';
 import ws from "ws";
